@@ -149,3 +149,10 @@
       color: $accent-color;
     }
   }
+
+  .text-grid{
+    display: flex;
+    .text-detail{
+      padding: 0 30px 0 0;
+    }
+  }
