@@ -1,0 +1,38 @@
+.recipe-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    @include box-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+    @include transition(transform, 0.3s);
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+    
+    .recipe-image {
+      height: 200px;
+      background-color: #ddd;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .recipe-content {
+      padding: 1.5rem;
+    }
+    
+    .recipe-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: $primary-color;
+    }
+    
+    .recipe-movie {
+      font-style: italic;
+      color: $accent-color;
+      margin-bottom: 0.5rem;
+    }
+    
+    .recipe-description {
+      margin-bottom: 1rem;
+    }
+  }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineSabor - Recetas de películas</title>
+    <link rel="stylesheet" href="./scss/main.scss">
+</head>
+<body>
+    <header>
+        <div class="logo">CineSabor</div>
+        <p>Las mejores recetas de tus películas favoritas</p>
+        <div class="banner-content">
+            <img src="assets/images/bridget.jpg">
+        </div>
+    </header>
+  
+   
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="categories.html">Categorías</a></li>
+            <li><a href="#">Películas</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <section class="featured-recipes">
+            <h2 class="section-title">Categorías Destacadas</h2>
+            <p>Explora los mejores platos de la gran pantalla por categorías</p>
+            <div class="categorie-grid">
+            
+                <div class="categorie-card">
+                    <img src="./assets/images/batido.jpg" alt="platos principales">
+                    <div class="category-info">
+                        <h3 class="recipe-title">Platos principales</h3>
+                        <a href="#" class="recipe-link">Descubre</a>
+                    </div>
+                </div>
+                
+                <div class="categorie-card">
+                    <img src="./assets/images/tarta.jpg" alt="postres">
+                    <div class="category-info">
+                        <h3 class="recipe-title">Postres</h3>
+                        <a href="#" class="recipe-link">Descubre</a>
+                    </div>
+                </div>
+                <div class="categorie-card">
+                    <img src="./assets/images/batido.png" alt="desayunos">
+                    <div class="category-info">
+                        <h3 class="recipe-title">Desayunos</h3>
+                        <a href="#" class="recipe-link">Descubre</a>
+                    </div>
+                </div>
+                <div class="categorie-card">
+                    <img src="./assets/images/batido.png" alt="bebidas">
+                    <div class="category-info">
+                        <h3 class="recipe-title">Bebidas</h3>
+                        <a href="#" class="recipe-link">Descubre</a>
+                    </div>
+                </div>
+                <div class="categorie-card">
+                    <img src="./assets/images/gazpacho.png" alt="snacks">
+                    <div class="category-info">
+                        <h3 class="recipe-title">Snacks</h3>
+                        <a href="#" class="recipe-link">Descubre</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="categories">
+            <h2 class="section-title">Explora por Categorías</h2>
+            <div class="category-list">
+                <div class="category-item">Postres</div>
+                <div class="category-item">Platos Principales</div>
+                <div class="category-item">Bebidas</div>
+                <div class="category-item">Snacks</div>
+                <div class="category-item">Desayunos</div>
+                <div class="category-item">Comida Rápida</div>
+            </div>
+        </section>
+        
+        <section class="newsletter">
+            <h2 class="section-title">Suscríbete a nuestro boletín</h2>
+            <p style="text-align: center; margin-bottom: 1rem;">Recibe nuevas recetas de películas directamente en tu correo.</p>
+            <form style="max-width: 500px; margin: 0 auto; display: flex;">
+                <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px 0 0 5px; border-right: none;">
+                <button type="submit" style="padding: 0.8rem 1.5rem; background-color: var(--primary-color); color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer;">Suscribirse</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 CineSabor - Todos los derechos reservados</p>
+        <p>Una web para amantes del cine y la gastronomía</p>
+        <div class="social-icons">
+            <span>📱</span>
+            <span>📘</span>
+            <span>📷</span>
+            <span>📹</span>
+        </div>
+    </footer>
+</body>
+</html>

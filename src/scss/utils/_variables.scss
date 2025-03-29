@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #21344B;
+    --secondary-color: #78B9BA;
+    --text-color: #333;
+    --background-color: #C6C5B4;
+    --accent-color: #CE472F;
+  }
+  
+  // SCSS Variables
+  $primary-color: #21344B;
+  $secondary-color: #78B9BA;
+  $text-color: #333;
+  $background-color: #C6C5B4;
+  $accent-color: #CE472F;
+  
+  // Breakpoints
+  $breakpoint-small: 576px;
+  $breakpoint-medium: 768px;
+  $breakpoint-large: 992px;
+  $breakpoint-xlarge: 1200px;

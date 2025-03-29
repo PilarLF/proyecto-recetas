@@ -1,0 +1,151 @@
+// Estilos específicos para la página de detalle
+.recipe-detail {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    @include box-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+    margin-bottom: 3rem;
+    
+    .recipe-hero {
+      position: relative;
+      height: 400px;
+      
+      .recipe-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .recipe-title-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2rem;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        
+        h1 {
+          color: white;
+          margin-bottom: 0.5rem;
+        }
+        
+        .recipe-meta {
+          display: flex;
+          gap: 2rem;
+          
+          span {
+            display: flex;
+            align-items: center;
+            
+            i {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+    
+    .recipe-content {
+      padding: 2rem;
+      
+      .recipe-description {
+        margin-bottom: 2rem;
+      }
+      
+      .recipe-section {
+        margin-bottom: 2rem;
+        
+        h2 {
+          margin-bottom: 1rem;
+          border-bottom: 2px solid $secondary-color;
+          padding-bottom: 0.5rem;
+        }
+      }
+      
+      .ingredients-list {
+        list-style-position: inside;
+        margin-bottom: 2rem;
+        
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+      
+      .steps-list {
+        counter-reset: step-counter;
+        list-style-type: none;
+        
+        li {
+          position: relative;
+          margin-bottom: 1.5rem;
+          padding-left: 3rem;
+          
+          &:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: $primary-color;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+          }
+        }
+      }
+      
+      .recipe-video {
+        margin: 2rem 0;
+        
+        iframe {
+          width: 100%;
+          aspect-ratio: 16/9;
+          border: none;
+          border-radius: 10px;
+        }
+      }
+      
+      .recipe-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+        
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 5px;
+          @include transition(transform, 0.3s);
+          
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+  
+  .related-recipes {
+    margin-top: 3rem;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: $primary-color;
+    
+    i {
+      margin-right: 0.5rem;
+    }
+    
+    &:hover {
+      color: $accent-color;
+    }
+  }

@@ -1,0 +1,114 @@
+.featured-recipes {
+    margin-bottom: 3rem;
+  }
+  
+  // Estilos específicos para la página principal
+  .about-section {
+    margin: 3rem 0;
+    
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      
+      @include mobile-only {
+        flex-direction: column;
+      }
+      
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+      
+      .about-image {
+        flex: 1;
+        min-width: 300px;
+        
+        img {
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+  
+  .newsletter {
+    background-color: $secondary-color;
+    padding: 3rem 0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 3rem 0;
+    
+    h2 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+      
+      @include mobile-only {
+        flex-direction: column;
+      }
+      
+      input {
+        flex-grow: 1;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        
+        @include mobile-only {
+          border-radius: 5px;
+          margin-bottom: 1rem;
+        }
+      }
+      
+      button {
+        padding: 0.75rem 1.5rem;
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        
+        @include mobile-only {
+          border-radius: 5px;
+        }
+        
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+  .categories {
+    margin-bottom: 3rem;
+    .category-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .category-item {
+        background-color: var(--secondary-color);
+        padding: 0.7rem 1.5rem;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      
+        &:hover {
+          background-color: var(--primary-color);
+          color: white;
+        }
+    }
+}
