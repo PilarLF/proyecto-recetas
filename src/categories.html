@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineSabor - Recetas de películas</title>
+    <title>Pizza Napolitana | CineSabor - Recetas de películas</title>
     <link rel="stylesheet" href="./scss/main.scss">
+    <!--Añadir favicon-->
+    <link rel="icon" type="images/png" href="./assets/images/favicon.png">
 </head>
 <body>
-    <header>
-        <div class="logo">CineSabor</div>
+    <header role="banner">
+        <div class="logo" aria-label="CineSabor"><a href="index.html">CineSabor</a></div>
         <p>Las mejores recetas de tus películas favoritas</p>
+
         <div class="banner-content">
-            <img src="assets/images/bridget.jpg">
+            <img 
+                src="https://live.staticflickr.com/688/20625166978_cc83b9a50c_c.jpg"
+                alt="Banner CineSabor, cuando Harry encontro a Sally"
+                loading="lazy">
+            <figcaption>
+                Crédito: Peter K. Levy en Flickr, 
+                Licencia: <a href="https://creativecommons.org/publicdomain/mark/1.0/">Tipo de licencia Creative Commons</a>
+            </figcaption>
         </div>
     </header>
   
@@ -30,45 +40,53 @@
         <section class="featured-recipes">
             <h2 class="section-title">Categorías Destacadas</h2>
             <p>Explora los mejores platos de la gran pantalla por categorías</p>
-            <div class="categorie-grid">
-            
-                <div class="categorie-card">
-                    <img src="./assets/images/batido.jpg" alt="platos principales">
-                    <div class="category-info">
-                        <h3 class="recipe-title">Platos principales</h3>
-                        <a href="#" class="recipe-link">Descubre</a>
+            <div class="recipe-grid">
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/desayuno.jpg">
+                    </div>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Desayunos</a>
                     </div>
                 </div>
                 
-                <div class="categorie-card">
-                    <img src="./assets/images/tarta.jpg" alt="postres">
-                    <div class="category-info">
-                        <h3 class="recipe-title">Postres</h3>
-                        <a href="#" class="recipe-link">Descubre</a>
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/napolitana.jpg">
+                    </div>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Platos principales</a>
                     </div>
                 </div>
-                <div class="categorie-card">
-                    <img src="./assets/images/batido.png" alt="desayunos">
-                    <div class="category-info">
-                        <h3 class="recipe-title">Desayunos</h3>
-                        <a href="#" class="recipe-link">Descubre</a>
+                
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/postre.jpg">
+                    </div>
+                    <div class="recipe-content"> 
+                        <a href="#" class="recipe-link">Postres</a>
                     </div>
                 </div>
-                <div class="categorie-card">
-                    <img src="./assets/images/batido.png" alt="bebidas">
-                    <div class="category-info">
-                        <h3 class="recipe-title">Bebidas</h3>
-                        <a href="#" class="recipe-link">Descubre</a>
+
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/batido2.jpg">
+                    </div>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Bebidas</a>
                     </div>
                 </div>
-                <div class="categorie-card">
-                    <img src="./assets/images/gazpacho.png" alt="snacks">
-                    <div class="category-info">
-                        <h3 class="recipe-title">Snacks</h3>
-                        <a href="#" class="recipe-link">Descubre</a>
+
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/gazpacho.jpg">
+                    </div>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Snacks</a>
                     </div>
                 </div>
             </div>
+        
         </section>
         
         <section class="categories">

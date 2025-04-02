@@ -26,7 +26,7 @@ nav {
           @include transition(color, 0.3s);
           
           &:hover {
-            color: $primary-color;
+            color: $accent-color;
           }
         }
       }

@@ -12,6 +12,9 @@ header {
     margin-bottom: 0.5rem;
     color:var(--accent-color);
     font-family:'Boldons' ;
+    a{
+      color:$accent-color;
+    }
   }
   
   .hero {

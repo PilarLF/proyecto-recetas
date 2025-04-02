@@ -28,4 +28,15 @@ body {
   a {
     text-decoration: none;
     @include transition(color, 0.3s);
+    color:white;
+  }
+  figcaption{
+    font-size: 60% !important;
+    color: #eee;
+    &.banner-credit {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
