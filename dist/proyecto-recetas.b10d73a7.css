@@ -4,7 +4,7 @@
   --secondary-color: #78b9ba;
   --text-color: #333;
   --background-color: #c6c5b4;
-  --accent-color: #ce472f;
+  --accent-color: #da6952;
 }
 
 * {
@@ -133,7 +133,7 @@ header {
 }
 
 .logo a {
-  color: #ce472f;
+  color: #da6952;
 }
 
 .hero {
@@ -189,7 +189,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #ce472f;
+  color: #da6952;
 }
 
 footer {
@@ -225,7 +225,7 @@ footer {
 }
 
 .recipe-link:hover {
-  background-color: #ce472f;
+  background-color: #da6952;
 }
 
 .btn {
@@ -259,11 +259,11 @@ footer {
 
 .btn--accent {
   color: #fff;
-  background-color: #ce472f;
+  background-color: #da6952;
 }
 
 .btn--accent:hover {
-  background-color: #a43926;
+  background-color: #cd472c;
 }
 
 .btn-discover {
@@ -341,7 +341,7 @@ footer {
 }
 
 .recipe-card .recipe-movie {
-  color: #ce472f;
+  color: #da6952;
   margin-bottom: .5rem;
   font-style: italic;
 }
@@ -381,7 +381,7 @@ footer {
 }
 
 .categorie-card .recipe-title {
-  color: #ce472f;
+  color: #da6952;
   margin-bottom: .5rem;
   font-size: 1.3rem;
 }
@@ -569,7 +569,7 @@ footer {
 }
 
 .newsletter form button:hover {
-  background-color: #ce472f;
+  background-color: #da6952;
 }
 
 .categories {
@@ -701,7 +701,7 @@ footer {
 }
 
 .detalle-receta .credits a {
-  color: #ce472f;
+  color: #da6952;
 }
 
 .detalle-receta .credits p {
@@ -932,7 +932,7 @@ footer {
 }
 
 .back-link:hover {
-  color: #ce472f;
+  color: #da6952;
 }
 
 .text-grid {
