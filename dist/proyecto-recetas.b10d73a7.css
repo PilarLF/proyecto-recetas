@@ -282,6 +282,21 @@ footer {
   background-color: #21344b;
 }
 
+.skip-link {
+  color: #fff;
+  z-index: 100;
+  background: #21344b;
+  padding: 8px;
+  transition: top .3s;
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 .recipe-card {
   background-color: #fff;
   border-radius: 10px;
@@ -926,5 +941,13 @@ footer {
 
 .text-grid .text-detail {
   padding: 0 30px 0 0;
+}
+
+.text-link {
+  flex-direction: column;
+  justify-content: left;
+  margin-top: 2rem;
+  padding-left: 2rem;
+  display: flex;
 }
 /*# sourceMappingURL=proyecto-recetas.b10d73a7.css.map */

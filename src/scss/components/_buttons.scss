@@ -67,3 +67,17 @@
     &:hover {
       background-color: $primary-color;
     }}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background:$primary-color;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+    &:focus{
+      top: 0;
+      } 
+    }

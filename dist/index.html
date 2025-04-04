@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Napolitana | CineSabor - Recetas de películas</title>
+    <title>CineSabor - Recetas de películas</title>
+    <meta name="description" content="Descubre y prepara los platos más emblemáticos del cine y la televisión">
     <link rel="stylesheet" href="/proyecto-recetas.b10d73a7.css">
-    <!--Añadir favicon-->
-    <link rel="icon" type="images/png" href="/favicon.ee9adb65.png">
+    <link rel="icon" type="images/png" href="/palomitas.34b09ad6.png">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header role="banner">
         <div class="logo" aria-label="CineSabor"><a href="/index.html">CineSabor</a></div>
         <p>Las mejores recetas de tus películas favoritas</p>
@@ -23,9 +24,9 @@
     </header>
   
    
-    <nav>
+    <nav role="navigation" aria-label="Menú principal">
         <ul>
-            <li><a href="/index.html" class="active">Inicio</a></li>
+            <li><a href="/index.html" class="active" aria-current="page">Inicio</a></li>
             <li><a href="/categories.html">Categorías</a></li>
             <li><a href="#">Películas</a></li>
             <li><a href="#">Sobre Nosotros</a></li>
@@ -33,29 +34,31 @@
         </ul>
     </nav>
     
-    <main class="container">
+    <main id="main-content" role="main" class="container">
         <section class="hero">
             <h1>Del cine a tu cocina</h1>
             <p>Descubre y prepara los platillos más emblemáticos que han aparecido en tus películas favoritas. Desde la ratatouille de Ratatouille hasta el pastel de chocolate de Matilda.</p>
         </section>
         
-        <section class="featured-recipes">
-            <h2 class="section-title">Recetas Destacadas</h2>
+        <section class="featured-recipes" aria-labelledby="featured-heading">
+            <h2 id="featured-heading" class="section-title">Recetas Destacadas</h2>
             <div class="recipe-grid">
+
+                <!--Receta destacada 1-->
                 <div class="recipe-card">
-                    <div class="recipe-image" style="background-image: url(&quot;https://hips.hearstapps.com/hmg-prod/images/pizzeria-antica-da-michele-madrid-julia-roberts-napoles-elle-gourmet-66d99d4943a2c.jpg?crop=0.668xw:1.00xh;0.0482xw,0&amp;*&quot;)">
+                    <div class="recipe-image" style="background-image: url(&quot;https://hips.hearstapps.com/hmg-prod/images/pizzeria-antica-da-michele-madrid-julia-roberts-napoles-elle-gourmet-66d99d4943a2c.jpg?crop=0.668xw:1.00xh;0.0482xw,0&amp;*&quot;)" role="img" aria-label="Pizza napolitana">
                     </div>
                     <div class="recipe-content">
                         <h3 class="recipe-title">Pizza napolitana</h3>
                         <p class="recipe-movie">De la película: Come, reza, ama (2010)</p>
                         <p class="recipe-description">El plato emblemático que conforma parte de la experiencia gastronómica de Elisabeth Gilbert en su paso por Italia.</p>
-                        <a href="/detalle-1-pizza-napolitana.html" class="recipe-link">Ver Receta</a>
+                        <a href="/detalle1.html" class="recipe-link">Ver Receta</a>
                     </div>
                 </div>
-                
+                <!--Receta destacada 2-->
                 <div class="recipe-card">
                     <div class="recipe-image-index">
-                        <img src="/gazpacho.43ac5810.png">
+                        <img src="/gazpacho.43ac5810.png" alt="Plato de gazpacho andaluz">
                     </div>
                     <div class="recipe-content">
                         <h3 class="recipe-title">Gazpacho andaluz</h3>
@@ -64,10 +67,10 @@
                         <a href="/detalle2.html" class="recipe-link">Ver Receta</a>
                     </div>
                 </div>
-                
+                <!--Receta destacada 3-->
                 <div class="recipe-card">
                     <div class="recipe-image-index">
-                        <img src="/sopa.1ad8ca2f.jpg">
+                        <img src="/sopa.1ad8ca2f.jpg" alt="Sopa azul, de la película Bridget Jones">
                     </div>
                     <div class="recipe-content">
                         <h3 class="recipe-title">Sopa azul</h3>
@@ -79,29 +82,29 @@
             </div>
         </section>
         
-        <section class="categories">
-            <h2 class="section-title">Explora por Categorías</h2>
-            <div class="category-list">
-                <div class="category-item">Postres</div>
-                <div class="category-item">Platos Principales</div>
-                <div class="category-item">Bebidas</div>
-                <div class="category-item">Snacks</div>
-                <div class="category-item">Desayunos</div>
-                <div class="category-item">Comida Rápida</div>
+        <section class="categories" aria-labelledby="categories-heading">
+            <h2 id="categories-heading" class="section-title">Explora por Categorías</h2>
+            <div class="category-list" role="list">
+                <div class="category-item" role="listitem"><a href="#">Postres</a></div>
+                <div class="category-item" role="listitem"><a href="#">Platos Principales</a></div>
+                <div class="category-item" role="listitem"><a href="#">Bebidas</a></div>
+                <div class="category-item" role="listitem"><a href="#">Snacks</a></div>
+                <div class="category-item" role="listitem"><a href="#">Desayunos</a></div>
             </div>
         </section>
         
-        <section class="newsletter">
-            <h2 class="section-title">Suscríbete a nuestro boletín</h2>
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+            <h2 id="newsletter-heading" class="section-title">Suscríbete a nuestro boletín</h2>
             <p style="text-align: center; margin-bottom: 1rem">Recibe nuevas recetas de películas directamente en tu correo.</p>
             <form style="max-width: 500px; margin: 0 auto; display: flex">
-                <input type="email" placeholder="Tu correo electrónico" style="border: 1px solid #ddd; border-right: none; border-radius: 5px 0 0 5px; flex: 1; padding: .8rem">
+               
+                <input type="email" placeholder="Tu correo electrónico" style="border: 1px solid #ddd; border-right: none; border-radius: 5px 0 0 5px; flex: 1; padding: .8rem" required="">
                 <button type="submit" style="background-color: var(--primary-color); color: #fff; cursor: pointer; border: none; border-radius: 0 5px 5px 0; padding: .8rem 1.5rem">Suscribirse</button>
             </form>
         </section>
     </main>
     
-    <footer>
+    <footer rol="content-info">
         <p>© 2025 CineSabor - Todos los derechos reservados</p>
         <p>Una web para amantes del cine y la gastronomía</p>
         <div class="social-icons">
@@ -140,7 +143,9 @@
                 </svg>
             </a>
         </div>
+        <a href="/enlaces.html">Enlaces al contenido utilizado</a>
     </footer>
+
     <script src="/proyecto-recetas.06cca03c.js"></script>
 <script src="/proyecto-recetas.59712999.js"></script></body>
 </html>
