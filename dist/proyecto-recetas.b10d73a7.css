@@ -939,8 +939,18 @@ footer {
   display: flex;
 }
 
-.text-grid .text-detail {
-  padding: 0 30px 0 0;
+@media (width <= 768px) {
+  .text-grid {
+    flex-direction: column;
+  }
+
+  .text-grid .gallery-container {
+    max-width: 80%;
+  }
+
+  .text-grid .gallery-container .gallery-nav {
+    max-width: 90%;
+  }
 }
 
 .text-link {

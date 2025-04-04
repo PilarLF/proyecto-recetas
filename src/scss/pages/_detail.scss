@@ -152,7 +152,15 @@
 
   .text-grid{
     display: flex;
-    .text-detail{
-      padding: 0 30px 0 0;
+    @include mobile-only {
+      flex-direction: column;
+      .gallery-container{
+        max-width: 80%;
+        .gallery-nav{
+          max-width: 90%;
+        }
+       
+      }
     }
+
   }
