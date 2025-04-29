@@ -32,9 +32,9 @@
     "aos": "^2.3.4"
   },
   "browserslist": [
-  "> 0.5%",
-  "last 2 versions",
-  "not dead",
-  "IE 11"
-]
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "IE 11"
+  ]
 }
