@@ -47,16 +47,19 @@
                         <p>En una de las películas más emblemáticas de <b>Pedro Almodóvar </b>, Pepa, el personaje interpretado por Carmen Maura, nos cita todos los ingredientes para prepararlo. Pero, si has visto la película, sabrás que Pepa añade un ingrediente extra del que puedes prescindir.</p> 
                     </div>
                     <div class="gallery-container" aria-label="Galería de Imágenes">
-                        <div class="gallery">
-                            <img src="/gazpacho.cfabcd2a.jpeg" alt="Plato gazpacho">
-                            <img src="/mujeres.f311ade3.jpeg" alt="Escena Pelicula Mujeres al borde de un ataque de nervios">
-                            <img src="/poster-mujeres.ef980e66.jpeg" alt="Poster de la pelicula">
-                        </div>
-                        <div class="gallery-nav">
-                            <button class="gallery-button" id="prev">&#9664;</button>
-                            <button class="gallery-button" id="next">&#9654;</button>
-                        </div>
-                        <div class="indicators" id="indicators" aria-label="Indicadores de posición en la galería"></div>
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="/gazpacho-plato-480.203f7feb.webp" type="image/webp">
+                          
+                          <!-- Versión tablet (recortada) -->
+                          <source media="(max-width: 768px)" srcset="/gazpacho-plato.5880c85e.webp" type="image/webp">
+                          
+                          <!-- Formato webp para navegadores modernos -->
+                          <source srcset="/gazpacho-plato.5880c85e.webp" type="image/webp">
+                          
+                          <!-- Fallback para navegadores que no soportan webp -->
+                          <img src="/gazpacho.cfabcd2a.jpeg" alt="Escena de la película donde aparece la receta" loading="lazy">
+                        
+                        </picture>
                     </div>
                 </div>
 
@@ -70,7 +73,19 @@
                     <iframe aria-label="Gazpacho andaluz, Mujeres al borde de un ataque de nervios" preload="metadata" srclang="en" label="Inglés" width="560" height="315" src="https://www.youtube.com/embed/Q31VFLBkmSs?si=u6-82fxQXKfbOmd4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
                     </iframe>
             </section></div>
-            
+
+            <div class="movie-gallery">
+                <div class="movie-gallery-container">
+                    <div class="gallery-item">
+                        <img src="/mujeres.3948dae4.webp" loading="lazy" srcset="/gazpacho-480.c12fdceb.webp 320w, /gazpacho.6d6ca515.webp 768w, /gazpacho-1020.c63da018.webp 1200w" sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px" alt="Escena pelicula Marisa sosteniendo gazpacho">
+                    </div>
+                
+              
+                    <div class="gallery-item-poster">
+                        <img src="/poster-mujeres.58cfc2de.webp" loading="lazy" alt="Poster de la pelicula Mujeres al borde de un ataque de nervios">
+                    </div>
+                </div>
+            </div>
 
             <div class="tiempo-info" aria-label="Información de preparación">
                 <span><strong>Tiempo de preparación:</strong> 15 minutos</span> | 

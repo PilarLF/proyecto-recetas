@@ -51,16 +51,30 @@
                         <p>Aunque en esta receta no vamos a usar un cordel azul como colorante, te proponemos una divertida versión de la mítica cena. Pero esta vez, con <b>algas y espirulina</b>.</p>
                     </div>
                     <div class="gallery-container" aria-label="Galería de Imágenes">
-                        <div class="gallery">
-                            <img src="./assets/images/sopa.jpg" alt="Plato sopa azul">
-                            <img src="./assets/images/bridget2.jpg" alt="Imagen de la película Bridget Jones">
-                            <img src="./assets/images/poster-bridget.jpg" alt="Poster de la película el Diario de Bridget Jones">
-                        </div>
-                        <div class="gallery-nav">
-                            <button class="gallery-button" id="prev">&#9664;</button>
-                            <button class="gallery-button" id="next">&#9654;</button>
-                        </div>
-                        <div class="indicators" id="indicators" aria-label="Indicadores de posición en la galería"></div>
+                        <picture>
+                            <source 
+                            media="(max-width: 480px)" 
+                            srcset="./assets/images/sopa-480.webp" 
+                            type="image/webp">
+                          
+                          <!-- Versión tablet (recortada) -->
+                          <source 
+                            media="(max-width: 768px)" 
+                            srcset="./assets/images/sopa-768.webp"  
+                            type="image/webp">
+                          
+                          <!-- Formato webp para navegadores modernos -->
+                          <source 
+                            srcset="./assets/images/sopa.webp" 
+                            type="image/webp">
+                          
+                          <!-- Fallback para navegadores que no soportan webp -->
+                          <img 
+                            src="./assets/images/sopa.jpg" 
+                            alt="Escena de la película donde aparece la receta"
+                            loading="lazy">
+                        
+                        </picture>
                     </div>
                 </div>
 
@@ -85,7 +99,26 @@
                         allowfullscreen>
                     </iframe>
             </div>
-            
+            <div class="movie-gallery">
+                <div class="movie-gallery-container">
+                    <div class="gallery-item">
+                        <img src="./assets/images/mujeres.webp" loading="lazy"
+                        srcset="./assets/images/bridget-480.webp 320w, ./assets/images/bridget.webp 768w, ./assets/images/bridget.webp 1200w"
+                        sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px"
+                        alt="Escena pelicula Marisa sosteniendo gazpacho"
+                        >
+                    </div>
+                
+              
+                    <div class="gallery-item-poster">
+                        <img src="./assets/images/poster-bridget.webp" loading="lazy"
+                        srcset="./assets/images/poster-bridget-480.webp 320w, ./assets/images/poster-bridget.webp 768w, ./assets/images/poster-bridget.webp 1200w"
+                        sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px"
+                        alt="Poster de la pelicula Mujeres al borde de un ataque de nervios"
+                        >
+                    </div>
+                </div>
+            </div>
 
             <div class="tiempo-info"  aria-label="Información de preparación">
                 <span><strong>Tiempo de preparación:</strong> 3 horas</span> | 

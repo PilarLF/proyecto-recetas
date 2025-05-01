@@ -17,8 +17,7 @@
         <div class="banner-content">
             <img 
                 src="https://live.staticflickr.com/688/20625166978_cc83b9a50c_c.jpg"
-                alt="Banner CineSabor, cuando Harry encontro a Sally"
-                loading="lazy">
+                alt="Banner CineSabor, cuando Harry encontro a Sally">
             <figcaption>
                 Crédito: Peter K. Levy en Flickr, 
                 Licencia: <a href="https://creativecommons.org/publicdomain/mark/1.0/">Tipo de licencia Creative Commons</a>
@@ -49,16 +48,30 @@
                         <p>Sus ingredientes son súper básicos pero el resultado <b>impresionante</b>. Tomate, mozzarella, hojas de albahaca fresca y aceite de oliva, son el único relleno para preparar esta estupenda y tradicional pizza italiana. Porque, a veces, lo más simple es lo mejor.</p> 
                     </div>
                     <div class="gallery-container" aria-label="Galería de Imágenes">
-                        <div class="gallery">
-                            <img src="./assets/images/napolitana.jpg" alt="Pizza Napolitana">
-                            <img src="./assets/images/pizza.jpg" alt="Escena de la película Come, reza, ama">
-                            <img src="./assets/images/poster-come.jpg" alt="Poster de película Come, reza, ama">
-                        </div>
-                        <div class="gallery-nav">
-                            <button class="gallery-button" id="prev">&#9664;</button>
-                            <button class="gallery-button" id="next">&#9654;</button>
-                        </div>
-                        <div class="indicators" id="indicators" aria-label="Indicadores de posición en la galería"></div>
+                        <picture>
+                            <source 
+                            media="(max-width: 480px)" 
+                            srcset="./assets/images/napolitana-480.webp" 
+                            type="image/webp">
+                          
+                          <!-- Versión tablet (recortada) -->
+                          <source 
+                            media="(max-width: 768px)" 
+                            srcset="./assets/images/napolitana-768.webp"  
+                            type="image/webp">
+                          
+                          <!-- Formato webp para navegadores modernos -->
+                          <source 
+                            srcset="./assets/images/napolitana-1200.webp" 
+                            type="image/webp">
+                          
+                          <!-- Fallback para navegadores que no soportan webp -->
+                          <img 
+                            src="./assets/images/napolitana.jpg" 
+                            alt="Escena de la película donde aparece la receta"
+                            loading="lazy">
+                        
+                        </picture>
                     </div>
                 </div>
 
@@ -81,8 +94,31 @@
                         referrerpolicy="strict-origin-when-cross-origin" 
                         allowfullscreen>
                     </iframe>
+                    
             </div>
             
+
+            <div class="movie-gallery">
+                <div class="movie-gallery-container">
+                    <div class="gallery-item">
+                        <img src="./assets/images/pizza.avif" loading="lazy"
+                        srcset="./assets/images/pizza-480.avif 320w, ./assets/images/pizza-768.avif 768w, ./assets/images/pizza.avif 1200w"
+                        sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px"
+                        alt="Julia Roberts en la escena de la película Come, reza, ama, comeindo pizza"
+                        >
+                    </div>
+                
+              
+                    <div class="gallery-item-poster">
+                        <img src="./assets/images/poster-come.webp" loading="lazy"
+                        srcset="./assets/images/poster-come-480.webp 320w, ./assets/images/poster-come-768.webp 768w, ./assets/images/poster-come.webp 1200w"
+                        sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px"
+                        alt="Poster de la pelicula Come, reza, ama"
+                        >
+                    </div>
+                </div>
+            </div>
+
 
             <div class="tiempo-info"  aria-label="Información de preparación">
                 <span><strong>Tiempo de preparación:</strong> 3 horas</span> | 

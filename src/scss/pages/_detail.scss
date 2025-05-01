@@ -55,6 +55,7 @@
       
       .recipe-section {
         margin-bottom: 2rem;
+        max-width: 100%;
         
         h2 {
           margin-bottom: 1rem;
@@ -102,15 +103,36 @@
       
       .recipe-video {
         margin: 2rem 0;
+        width: 100%;
         
-        iframe {
-          width: 100%;
-          aspect-ratio: 16/9;
-          border: none;
-          border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        iframe{
+          width: 100% !important; /* Sobreescribe el atributo width del iframe */
+          height: 100% !important; /* Sobreescribe el atributo height del iframe */
+          aspect-ratio: 16 / 9; /* Mantiene la proporción 16:9 (CSS moderno) */
+          max-width: 100%;
         }
-      }
-      
+        @include mobile-only {
+          .recipe-video iframe {
+            height: 100% !important;
+            max-width: 100%;
+          }
+        }
+
+        }
+        /* Media queries adicionales para mejorar la adaptabilidad */
+        @media screen and (max-width: 768px) {
+          .recipe-video {
+            margin: 1.5rem 0;
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          .recipe-video {
+            margin: 1rem 0;
+          }
+        }
       .recipe-gallery {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

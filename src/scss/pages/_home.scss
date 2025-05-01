@@ -112,3 +112,53 @@
         }
     }
 }
+
+.tweet-container{
+    border-radius: 20px;
+    background: radial-gradient(79.69% 102.24% at 100% 100.11%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(89.7% 115.09% at 3.43% 2.75%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0)), #CE472F;
+    background-blend-mode: overlay, overlay, normal;
+    box-shadow: 0 4px 0 #d5d5d5;
+    width: auto;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    gap: 3%;
+    h3{
+      color:white;
+    }
+    @include mobile-only {
+      flex-direction: column !important;}
+  .tweet{
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+
+    @include mobile-only {
+      width:100% !important;}
+
+    img{
+      border-radius: 20px;
+      max-width: 100%; //que la imagen no se salga del box
+    }
+
+  }
+  .tweet-description{
+    width: 46%;
+  }
+  .animation{
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    @include mobile-only{
+      flex-direction: column;
+    }
+  }
+}

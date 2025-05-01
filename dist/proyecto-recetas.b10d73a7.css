@@ -297,6 +297,43 @@ footer {
   top: 0;
 }
 
+.tweet-btn {
+  mix-blend-mode: normal;
+  background: #fff;
+  border-radius: 80px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+  width: 170px;
+  padding: 0 10px;
+  display: flex;
+  box-shadow: 0 24px 30px #0000001c;
+}
+
+.tweet-btn p {
+  height: 48px;
+  font-family: Avenir;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 16px;
+}
+
+.tweet-btn a {
+  color: #ce472f !important;
+}
+
+@media (width <= 768px) {
+  .tweet-btn {
+    max-width: 100%;
+  }
+
+  .tweet-btn h2 {
+    font-size: smaller;
+  }
+}
+
 .recipe-card {
   background-color: #fff;
   border-radius: 10px;
@@ -400,80 +437,98 @@ footer {
 }
 
 .gallery-container {
-  border-radius: 8px;
-  width: 400%;
+  object-fit: contain;
+  width: auto;
   max-width: 400px;
-  height: 400px;
+  height: auto;
+  max-width: auto;
+  border-radius: 8px;
   margin: 0 auto;
+  transition: transform .5s;
+  display: flex;
   position: relative;
   overflow: hidden;
   box-shadow: 0 5px 15px #0003;
 }
 
-.gallery-container .gallery {
-  transition: transform .5s;
-  display: flex;
-}
-
-.gallery-container .gallery img {
+.gallery-container picture img {
   object-fit: cover;
-  flex-shrink: 0;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s;
+  display: block;
 }
 
-.gallery-container .gallery-nav {
-  justify-content: space-between;
-  align-items: center;
-  width: 400px;
-  height: 300px;
-  padding: 0 20px;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+.gallery-container picture img:hover {
+  transform: scale(1.05);
 }
 
-.gallery-container .gallery-button {
-  color: #333;
-  cursor: pointer;
-  background-color: #ffffffb3;
-  border: none;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  transition: background-color .3s;
-  display: flex;
+.movie-gallery {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.gallery-container:hover {
-  background-color: #ffffffe6;
+.movie-gallery .movie-gallery-container {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  display: grid;
 }
 
-.indicators {
-  gap: 8px;
-  display: flex;
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
+.movie-gallery .movie-gallery-container .gallery-item {
+  border-radius: 8px;
+  max-height: 300px;
+  margin-top: 20px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  box-shadow: 0 4px 15px #0000001a;
 }
 
-.indicator {
-  cursor: pointer;
-  background-color: #ffffff80;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  transition: background-color .3s;
+.movie-gallery .movie-gallery-container .gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px #0003;
 }
 
-.indicator:active {
-  background-color: #fff;
+.movie-gallery .movie-gallery-container .gallery-item img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  transition: transform .5s;
+  display: block;
+}
+
+.movie-gallery .movie-gallery-container .gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+.movie-gallery .movie-gallery-container .gallery-item-poster {
+  border-radius: 8px;
+  max-height: 520px;
+  margin-top: 20px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  box-shadow: 0 4px 15px #0000001a;
+}
+
+.movie-gallery .movie-gallery-container .gallery-item-poster:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px #0003;
+}
+
+.movie-gallery .movie-gallery-container .gallery-item-poster img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  transition: transform .5s;
+  display: block;
+}
+
+.movie-gallery .movie-gallery-container .gallery-item-poster img:hover {
+  transform: scale(1.05);
 }
 
 #palomitas {
@@ -497,8 +552,8 @@ footer {
 }
 
 .clipped-image {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   margin: 20px auto;
   position: relative;
   overflow: hidden;
@@ -516,7 +571,7 @@ footer {
 }
 
 .clip-movie-reel {
-  clip-path: polygon(20% 0%, 80% 0%, 100% 30%, 100% 70%, 80% 100%, 20% 100%, 0% 70%, 0% 30%);
+  clip-path: polygon(0% 11.2%, 100% 2.2%, 100% 17.2%, 7% 26%, 7.8% 27.8%, 99.8% 26.2%, 100% 100%, 0% 100%, 0% 10%);
 }
 
 .featured-recipes {
@@ -637,6 +692,69 @@ footer {
 .categories .category-item:hover {
   background-color: var(--primary-color);
   color: #fff;
+}
+
+.tweet-container {
+  background-blend-mode: overlay, overlay, normal;
+  background: radial-gradient(79.69% 102.24% at 100% 100.11%, #0003, #0000), radial-gradient(89.7% 115.09% at 3.43% 2.75%, #ffffffb3, #fff0), #ce472f;
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3%;
+  width: auto;
+  margin: 0 auto;
+  padding: 20px 15px;
+  display: flex;
+  box-shadow: 0 4px #d5d5d5;
+}
+
+.tweet-container h3 {
+  color: #fff;
+}
+
+@media (width <= 768px) {
+  .tweet-container {
+    flex-direction: column !important;
+  }
+}
+
+.tweet-container .tweet {
+  box-sizing: border-box;
+  width: 50%;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 768px) {
+  .tweet-container .tweet {
+    width: 100% !important;
+  }
+}
+
+.tweet-container .tweet img {
+  border-radius: 20px;
+  max-width: 100%;
+}
+
+.tweet-container .tweet-description {
+  width: 46%;
+}
+
+.tweet-container .animation {
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media (width <= 768px) {
+  .tweet-container .animation {
+    flex-direction: column;
+  }
 }
 
 .category-header {
@@ -883,7 +1001,12 @@ footer {
   padding: 2rem;
 }
 
-.recipe-detail .recipe-content .recipe-description, .recipe-detail .recipe-content .recipe-section {
+.recipe-detail .recipe-content .recipe-description {
+  margin-bottom: 2rem;
+}
+
+.recipe-detail .recipe-content .recipe-section {
+  max-width: 100%;
   margin-bottom: 2rem;
 }
 
@@ -931,14 +1054,36 @@ footer {
 }
 
 .recipe-detail .recipe-content .recipe-video {
+  width: 100%;
   margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .recipe-detail .recipe-content .recipe-video iframe {
   aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
+  max-width: 100%;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (width <= 768px) {
+  .recipe-detail .recipe-content .recipe-video .recipe-video iframe {
+    max-width: 100%;
+    height: 100% !important;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .recipe-detail .recipe-content .recipe-video {
+    margin: 1.5rem 0;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .recipe-detail .recipe-content .recipe-video {
+    margin: 1rem 0;
+  }
 }
 
 .recipe-detail .recipe-content .recipe-gallery {

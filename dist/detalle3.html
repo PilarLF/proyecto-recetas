@@ -48,16 +48,19 @@
                         <p>Aunque en esta receta no vamos a usar un cordel azul como colorante, te proponemos una divertida versión de la mítica cena. Pero esta vez, con <b>algas y espirulina</b>.</p>
                     </div>
                     <div class="gallery-container" aria-label="Galería de Imágenes">
-                        <div class="gallery">
-                            <img src="/sopa.a676f227.jpeg" alt="Plato sopa azul">
-                            <img src="/bridget2.d4172c1f.jpeg" alt="Imagen de la película Bridget Jones">
-                            <img src="/poster-bridget.cbcf8cec.jpeg" alt="Poster de la película el Diario de Bridget Jones">
-                        </div>
-                        <div class="gallery-nav">
-                            <button class="gallery-button" id="prev">&#9664;</button>
-                            <button class="gallery-button" id="next">&#9654;</button>
-                        </div>
-                        <div class="indicators" id="indicators" aria-label="Indicadores de posición en la galería"></div>
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="/sopa-480.a00eb00a.webp" type="image/webp">
+                          
+                          <!-- Versión tablet (recortada) -->
+                          <source media="(max-width: 768px)" srcset="/sopa-768.015fbaa0.webp" type="image/webp">
+                          
+                          <!-- Formato webp para navegadores modernos -->
+                          <source srcset="/sopa.7831dfc2.webp" type="image/webp">
+                          
+                          <!-- Fallback para navegadores que no soportan webp -->
+                          <img src="/sopa.a676f227.jpeg" alt="Escena de la película donde aparece la receta" loading="lazy">
+                        
+                        </picture>
                     </div>
                 </div>
 
@@ -71,7 +74,18 @@
                     <iframe aria-label="Pizza Napolitana, escena de la película Come, reza, ama" preload="metadata" srclang="en" label="Inglés" width="560" height="315" src="https://www.youtube.com/embed/X54b51lJQ-o?si=jm7FG3cGRonO8aVD&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
                     </iframe>
             </section></div>
-            
+            <div class="movie-gallery">
+                <div class="movie-gallery-container">
+                    <div class="gallery-item">
+                        <img src="/mujeres.3948dae4.webp" loading="lazy" srcset="/bridget-480.e87347a3.webp 320w, /bridget.bd796887.webp 768w, /bridget.bd796887.webp 1200w" sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px" alt="Escena pelicula Marisa sosteniendo gazpacho">
+                    </div>
+                
+              
+                    <div class="gallery-item-poster">
+                        <img src="/poster-bridget.2a3a79a6.webp" loading="lazy" srcset="/poster-bridget-480.780d085a.webp 320w, /poster-bridget.2a3a79a6.webp 768w, /poster-bridget.2a3a79a6.webp 1200w" sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px" alt="Poster de la pelicula Mujeres al borde de un ataque de nervios">
+                    </div>
+                </div>
+            </div>
 
             <div class="tiempo-info" aria-label="Información de preparación">
                 <span><strong>Tiempo de preparación:</strong> 3 horas</span> | 
