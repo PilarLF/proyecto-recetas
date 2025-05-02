@@ -15,14 +15,30 @@
         <p>Las mejores recetas de tus películas favoritas</p>
 
         <div class="banner-content">
-            <img 
-                src="https://live.staticflickr.com/688/20625166978_cc83b9a50c_c.jpg"
-                alt="Banner CineSabor, cuando Harry encontro a Sally"
-                loading="lazy">
-            <figcaption>
-                Crédito: Peter K. Levy en Flickr, 
-                Licencia: <a href="https://creativecommons.org/publicdomain/mark/1.0/">Tipo de licencia Creative Commons</a>
-            </figcaption>
+            <!-- solucion mediante dirección de arte-->
+            <picture>
+                  <!-- Versión móvil (vertical) -->
+                <source 
+                media="(max-width: 480px)" 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                type="image/webp">
+
+                <!-- Versión tablet (recortada) -->
+                <source 
+                media="(max-width: 768px)" 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                type="image/webp">
+
+                <!-- Formato webp para navegadores modernos -->
+                <source 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                type="image/webp">
+                  <!-- Fallback para navegadores que no soportan webp -->
+                <img 
+                src="./assets/images/harry-sally.jpg?quality=80" 
+                alt="Cuando Harry encontró a Sally, escena restaurante"
+                >
+            </picture>
         </div>
     </header>
   
@@ -90,25 +106,33 @@
         
         </section>
         
-        <section class="categories">
-            <h2 class="section-title">Explora por Categorías</h2>
-            <div class="category-list">
-                <div class="category-item">Postres</div>
-                <div class="category-item">Platos Principales</div>
-                <div class="category-item">Bebidas</div>
-                <div class="category-item">Snacks</div>
-                <div class="category-item">Desayunos</div>
-                
+
+        <section class="categories" aria-labelledby="categories-heading">
+            <h2 id="categories-heading" class="section-title">Explora por Categorías</h2>
+            <div class="category-list"  role="list">
+                <div class="category-item" role="listitem"><a href="#">Postres</a></div>
+                <div class="category-item" role="listitem"><a href="#">Platos Principales</a></div>
+                <div class="category-item" role="listitem"><a href="#">Bebidas</a></div>
+                <div class="category-item" role="listitem"><a href="#">Snacks</a></div>
+                <div class="category-item" role="listitem"><a href="#">Desayunos</a></div>
             </div>
         </section>
         
-        <section class="newsletter">
-            <h2 class="section-title">Suscríbete a nuestro boletín</h2>
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+            <h2 id="newsletter-heading"  class="section-title">Suscríbete a nuestro boletín</h2>
             <p style="text-align: center; margin-bottom: 1rem;">Recibe nuevas recetas de películas directamente en tu correo.</p>
             <form style="max-width: 500px; margin: 0 auto; display: flex;">
-                <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px 0 0 5px; border-right: none;">
+                <label for="email-subscription">Correo electrónico</label>
+                <input 
+                id="email-subscription"
+                    type="email" 
+                    placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px 0 0 5px; border-right: none;" required>
                 <button type="submit" style="padding: 0.8rem 1.5rem; background-color: var(--primary-color); color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer;">Suscribirse</button>
             </form>
+            <div class="clipped-image">
+                <div class="clip-movie-reel">
+                <img src="./assets/images/tarta.jpg" alt="Imagen de la película Criadas y señoras"></div>
+            </div>
         </section>
     </main>
     

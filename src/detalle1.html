@@ -15,13 +15,30 @@
         <p>Las mejores recetas de tus películas favoritas</p>
 
         <div class="banner-content">
-            <img 
-                src="https://live.staticflickr.com/688/20625166978_cc83b9a50c_c.jpg"
-                alt="Banner CineSabor, cuando Harry encontro a Sally">
-            <figcaption>
-                Crédito: Peter K. Levy en Flickr, 
-                Licencia: <a href="https://creativecommons.org/publicdomain/mark/1.0/">Tipo de licencia Creative Commons</a>
-            </figcaption>
+            <!-- solucion mediante dirección de arte-->
+            <picture>
+                  <!-- Versión móvil (vertical) -->
+                <source 
+                media="(max-width: 480px)" 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                type="image/webp">
+
+                <!-- Versión tablet (recortada) -->
+                <source 
+                media="(max-width: 768px)" 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                type="image/webp">
+
+                <!-- Formato webp para navegadores modernos -->
+                <source 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                type="image/webp">
+                  <!-- Fallback para navegadores que no soportan webp -->
+                <img 
+                src="./assets/images/harry-sally.jpg?quality=80" 
+                alt="Cuando Harry encontró a Sally, escena restaurante"
+                >
+            </picture>
         </div>
     </header>
   
