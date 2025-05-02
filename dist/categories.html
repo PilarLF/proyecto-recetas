@@ -15,11 +15,19 @@
         <p>Las mejores recetas de tus películas favoritas</p>
 
         <div class="banner-content">
-            <img src="https://live.staticflickr.com/688/20625166978_cc83b9a50c_c.jpg" alt="Banner CineSabor, cuando Harry encontro a Sally" loading="lazy">
-            <figcaption>
-                Crédito: Peter K. Levy en Flickr, 
-                Licencia: <a href="https://creativecommons.org/publicdomain/mark/1.0/">Tipo de licencia Creative Commons</a>
-            </figcaption>
+            <!-- solucion mediante dirección de arte-->
+            <picture>
+                  <!-- Versión móvil (vertical) -->
+                <source media="(max-width: 480px)" srcset="/harry-sally.fd92c586.webp" type="image/webp">
+
+                <!-- Versión tablet (recortada) -->
+                <source media="(max-width: 768px)" srcset="/harry-sally.fd92c586.webp" type="image/webp">
+
+                <!-- Formato webp para navegadores modernos -->
+                <source srcset="/harry-sally.fd92c586.webp" type="image/webp">
+                  <!-- Fallback para navegadores que no soportan webp -->
+                <img src="/harry-sally.74df74a7.jpeg" alt="Cuando Harry encontró a Sally, escena restaurante">
+            </picture>
         </div>
     </header>
   
@@ -104,7 +112,7 @@
             <p style="text-align: center; margin-bottom: 1rem">Recibe nuevas recetas de películas directamente en tu correo.</p>
             <form style="max-width: 500px; margin: 0 auto; display: flex">
                 <label for="email-subscription">Correo electrónico</label>
-                <input type="email" placeholder="Tu correo electrónico" style="border: 1px solid #ddd; border-right: none; border-radius: 5px 0 0 5px; flex: 1; padding: .8rem" required="">
+                <input id="email-subscription" type="email" placeholder="Tu correo electrónico" style="border: 1px solid #ddd; border-right: none; border-radius: 5px 0 0 5px; flex: 1; padding: .8rem" required="">
                 <button type="submit" style="background-color: var(--primary-color); color: #fff; cursor: pointer; border: none; border-radius: 0 5px 5px 0; padding: .8rem 1.5rem">Suscribirse</button>
             </form>
             <div class="clipped-image">
