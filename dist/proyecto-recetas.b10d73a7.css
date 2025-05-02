@@ -5,6 +5,7 @@
   --text-color: #333;
   --background-color: #c6c5b4;
   --accent-color: #da6952;
+  --accent-b-color: #5a2b22;
 }
 
 * {
@@ -378,7 +379,7 @@ footer {
 }
 
 .recipe-card .recipe-movie {
-  color: #da6952;
+  color: #5a2b22;
   margin-bottom: .5rem;
   font-style: italic;
 }
@@ -683,7 +684,7 @@ footer {
 }
 
 .categories .category-list a {
-  color: var(--primary-color) !important;
+  color: #000 !important;
 }
 
 .categories .category-list a:hover {
