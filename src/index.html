@@ -58,7 +58,7 @@
         </ul>
     </nav>
     
-    <main  id="main-content" role="main" class="container">
+    <main  id="main-content" class="container">
         <section class="hero">
             <h1>Del cine a tu cocina</h1>
  
@@ -71,10 +71,9 @@
             <div class="recipe-grid">
 
                 <!--Receta destacada 1-->
-                <div class="recipe-card">
-                    <div class="recipe-image" 
-                        style="background-image: url(https://hips.hearstapps.com/hmg-prod/images/pizzeria-antica-da-michele-madrid-julia-roberts-napoles-elle-gourmet-66d99d4943a2c.jpg?crop=0.668xw:1.00xh;0.0482xw,0&amp;*);"
-                        role="img" aria-label="Pizza napolitana">
+                <article class="recipe-card">
+                    <div class="recipe-image-index">
+                        <img src="./assets/images/pizza.avif"  alt="Pizza napolitana" loading="lazy">
                     </div>
                     <div class="recipe-content">
                         <h3 class="recipe-title">Pizza napolitana</h3>
@@ -82,11 +81,11 @@
                         <p class="recipe-description">El plato emblemático que conforma parte de la experiencia gastronómica de Elisabeth Gilbert en su paso por Italia.</p>
                         <a href="detalle1.html" class="recipe-link">Ver Receta</a>
                     </div>
-                </div>
+                </article>
                 <!--Receta destacada 2-->
-                <div class="recipe-card">
+                <article class="recipe-card">
                     <div class="recipe-image-index">
-                        <img src="./assets/images/gazpacho.png"  alt="Plato de gazpacho andaluz">
+                        <img src="./assets/images/gazpacho.png"  alt="Plato de gazpacho andaluz" loading="lazy">
                     </div>
                     <div class="recipe-content">
                         <h3 class="recipe-title">Gazpacho andaluz</h3>
@@ -94,11 +93,11 @@
                         <p class="recipe-description">El gazpacho que Carmen Maura prepara con su "toque" en esta mítica película de Almodóvar.</p>
                         <a href="detalle2.html" class="recipe-link">Ver Receta</a>
                     </div>
-                </div>
+                </article>
                 <!--Receta destacada 3-->
-                <div class="recipe-card">
+                <article class="recipe-card">
                     <div class="recipe-image-index">
-                        <img src="./assets/images/sopa.jpg"  alt="Sopa azul, de la película Bridget Jones">
+                        <img src="./assets/images/sopa.jpg"  alt="Sopa azul, de la película Bridget Jones" loading="lazy">
                     </div>
                     <div class="recipe-content">
                         <h3 class="recipe-title">Sopa azul</h3>
@@ -106,13 +105,13 @@
                         <p class="recipe-description">La sopa azul (por accidente) que Bridget hace cenar a sus amigos.</p>
                         <a href="detalle3.html" class="recipe-link">Ver Receta</a>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
         
-        <section class="tweet-container">
+        <aside  class="tweet-container">
             <div class="tweet">
-                <img src="https://blog.logrocket.com/wp-content/uploads/2022/11/Screen-Shot-2022-09-22-at-12.58.05-PM.png"> 
+                <img src="https://blog.logrocket.com/wp-content/uploads/2022/11/Screen-Shot-2022-09-22-at-12.58.05-PM.png" alt="Tweet"> 
             </div>
             <div class="tweet-description">
                 <div class="animation">
@@ -145,7 +144,7 @@
                     <a aria-label="Twitter" href="https://www.twitter.com">Comparte→</a> 
                 </div>
             </div>
-        </section>
+        </aside>
 
         <section class="categories" aria-labelledby="categories-heading">
             <h2 id="categories-heading" class="section-title">Explora por Categorías</h2>
@@ -162,19 +161,19 @@
             <h2 id="newsletter-heading"  class="section-title">Suscríbete a nuestro boletín</h2>
             <p style="text-align: center; margin-bottom: 1rem;">Recibe nuevas recetas de películas directamente en tu correo.</p>
             <form style="max-width: 500px; margin: 0 auto; display: flex;">
-               
-                <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px 0 0 5px; border-right: none;" required>
+                <input 
+                    type="email" 
+                    placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px 0 0 5px; border-right: none;" required>
                 <button type="submit" style="padding: 0.8rem 1.5rem; background-color: var(--primary-color); color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer;">Suscribirse</button>
             </form>
-
             <div class="clipped-image">
                 <div class="clip-movie-reel">
-                <img src="./assets/images/tarta.jpg"><img></div>
+                <img src="./assets/images/tarta.jpg" alt="Imagen de la película Criadas y señoras"></div>
             </div>
         </section>
     </main>
     
-    <footer rol="content-info">
+    <footer role="contentinfo">
         <p>© 2025 CineSabor - Todos los derechos reservados</p>
         <p>Una web para amantes del cine y la gastronomía</p>
         <div class="social-icons">

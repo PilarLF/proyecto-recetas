@@ -671,6 +671,7 @@ footer {
 }
 
 .categories {
+  margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -681,8 +682,17 @@ footer {
   display: flex;
 }
 
+.categories .category-list a {
+  color: var(--primary-color) !important;
+}
+
+.categories .category-list a:hover {
+  transition: color .3s;
+  color: #fff !important;
+}
+
 .categories .category-item {
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   cursor: pointer;
   border-radius: 20px;
   padding: .7rem 1.5rem;
@@ -695,8 +705,8 @@ footer {
 }
 
 .tweet-container {
+  background: radial-gradient(79.69% 102.24% at 100% 100.11%, #0003, #0000), radial-gradient(89.7% 115.09% at 3.43% 2.75%, #ffffffb3, #fff0), var(--primary-color);
   background-blend-mode: overlay, overlay, normal;
-  background: radial-gradient(79.69% 102.24% at 100% 100.11%, #0003, #0000), radial-gradient(89.7% 115.09% at 3.43% 2.75%, #ffffffb3, #fff0), #ce472f;
   border-radius: 20px;
   flex-direction: row;
   justify-content: space-evenly;
