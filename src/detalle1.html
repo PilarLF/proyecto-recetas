@@ -99,6 +99,22 @@
                 </div>
 
         <!-- Sección de video -->
+        <!-- <div class="movie-reference" data-src="https://www.youtube.com/embed/GXy4MFCrsaM?si=n8K7nAicR-DG_XU7">
+                <h3>La escena icónica</h3>
+                <p>En una de las escenas más memorables de "Come, reza, ama", la protagonista Elizabeth Gilbert (interpretada por Julia Roberts) disfruta de una auténtica pizza napolitana en la famosa pizzería Da Michele en Nápoles. Mientras saborea cada bocado, pronuncia las palabras que se han convertido en un mantra para los amantes de la comida: "Estoy teniendo una relación con mi pizza".</p>
+                <p>Esta escena captura la experiencia transcendental de disfrutar la comida italiana auténtica y ha inspirado a muchos espectadores a buscar su propia experiencia gastronómica napolitana.</p>
+                
+            <button onclick="loadVideo()">▶ Ver video</button>
+        </div>
+
+        <script>
+        function loadVideo() {
+            const placeholder = document.querySelector('.movie-reference');
+            const src = placeholder.dataset.src;
+            placeholder.innerHTML = `<iframe width="560" height="315" src="${src}" 
+                frameborder="0" allowfullscreen loading="lazy"></iframe>`;
+        }
+        </script> -->
             <div class="movie-reference">
                 <h3>La escena icónica</h3>
                 <p>En una de las escenas más memorables de "Come, reza, ama", la protagonista Elizabeth Gilbert (interpretada por Julia Roberts) disfruta de una auténtica pizza napolitana en la famosa pizzería Da Michele en Nápoles. Mientras saborea cada bocado, pronuncia las palabras que se han convertido en un mantra para los amantes de la comida: "Estoy teniendo una relación con mi pizza".</p>
@@ -115,7 +131,7 @@
                         title="YouTube video player" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
+                        allowfullscreen loading="lazy">
                     </iframe>
                     
             </div>
