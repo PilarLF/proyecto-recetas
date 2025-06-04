@@ -432,9 +432,21 @@ footer {
 .banner-content img {
   object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 300px;
   max-height: 400px;
   display: block;
+}
+
+@media (width <= 768px) {
+  .banner-content picture, .banner-content img {
+    height: 200px;
+  }
+}
+
+@media (width <= 480px) {
+  .banner-content picture, .banner-content img {
+    height: 150px;
+  }
 }
 
 .gallery-container {

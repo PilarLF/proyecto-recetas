@@ -3,9 +3,24 @@
     overflow: hidden;
     img{
       width: 100%;
-      height: auto;
+      height: 300px;
       object-fit: cover;
       max-height: 400px; 
       display: block;
     }
   }
+
+          /* Responsive heights para el banner */
+        @media (max-width: 768px) {
+            .banner-content picture,
+            .banner-content img {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner-content picture,
+            .banner-content img {
+                height: 150px;
+            }
+        }
