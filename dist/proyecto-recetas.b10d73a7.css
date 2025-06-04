@@ -626,6 +626,11 @@ footer {
   padding: 3rem 0;
 }
 
+.newsletter label {
+  position: absolute;
+  left: -9999px;
+}
+
 .newsletter h2 {
   color: #21344b;
   margin-bottom: 1rem;

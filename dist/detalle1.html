@@ -26,7 +26,8 @@
                 <!-- Formato webp para navegadores modernos -->
                 <source srcset="/harry-sally.fd92c586.webp" type="image/webp">
                   <!-- Fallback para navegadores que no soportan webp -->
-                <img src="/harry-sally.74df74a7.jpeg" alt="Cuando Harry encontró a Sally, escena restaurante" width="400" height="300" loading="lazy" style="aspect-ratio: 4 / 3; object-fit: cover">
+                <img src="/harry-sally.74df74a7.jpeg" alt="Cuando Harry encontró a Sally, escena restaurante" width="1200" height="300" loading="eager" fetchpriority="high" decoding="sync">  <!--para renderizado inmediato-->
+                
             </picture>
         </div>
     </header>

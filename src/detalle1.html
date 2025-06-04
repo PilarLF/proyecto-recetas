@@ -37,11 +37,12 @@
                 <img 
                 src="./assets/images/harry-sally.jpg?quality=80" 
                 alt="Cuando Harry encontró a Sally, escena restaurante"
-                width="400" 
+                width="1200"
                 height="300"
-                loading="lazy"
-                style="aspect-ratio: 4/3; object-fit: cover;"
-                >
+                loading="eager"
+                fetchpriority="high" 
+                decoding="sync">  <!--para renderizado inmediato-->
+                
             </picture>
         </div>
     </header>
