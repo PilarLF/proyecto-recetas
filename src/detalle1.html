@@ -3,14 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineSabor - Recetas de películas</title>
+    <title>CineSabor - Recetas de películas - Categorías</title>
     <meta name="description" content="Descubre y prepara los platos más emblemáticos del cine y la televisión">
-    <link rel="preload" href="./scss/main.scss" as="style">
+    <link rel="stylesheet" href="./scss/main.scss">
     <link rel="icon" type="images/png" href="./assets/favicon/palomitas.png">
-      <link rel="preload" href="./assets/images/harry-sally.jpg?as=webp&quality=80" as="image" fetchpriority="high">
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* OPTIMIZACIONES CRÍTICAS PARA LCP Y CLS */
+        
+        /* Preload crítico para LCP */
+        .banner-content {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 300px; /* Altura de respaldo mientras carga */
+        }
+        
+        /* Skeleton loader para la imagen principal */
+        .banner-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,0.1) 25%,
+                rgba(255,255,255,0.2) 50%,
+                rgba(255,255,255,0.1) 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            z-index: 1;
+        }
+        
+        .banner-content picture,
+        .banner-content img {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        /* OPTIMIZACIONES CRÍTICAS PARA CLS */
+        
+        /* 1. Dimensiones fijas para imágenes del banner */
+        .banner-content picture,
+        .banner-content img {
+            width: 100%;
+            height: 300px; /* Altura fija para evitar layout shift */
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Responsive heights para el banner */
+        @media (max-width: 768px) {
+            .banner-content picture,
+            .banner-content img {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner-content picture,
+            .banner-content img {
+                height: 150px;
+            }
+        }
+        
+        /* 2. Grid con aspect-ratio para recipe cards */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .recipe-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* 3. Contenedor de imagen con aspect-ratio fijo */
+        .recipe-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3; /* Proporción fija 4:3 */
+            overflow: hidden;
+        }
+        
+        .recipe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .recipe-content {
+            padding: 1.5rem;
+        }
+        
+        .recipe-link {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        
+        .recipe-link:hover {
+            color: #e74c3c;
+        }
+        
+        /* 4. Lista de categorías con dimensiones consistentes */
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .category-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-height: 60px; /* Altura mínima fija */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            padding: 1rem;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .category-item:hover {
+            background: #e9ecef;
+        }
+        
+        /* 5. Imagen recortada con dimensiones fijas */
+        .clipped-image {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .clip-movie-reel {
+            width: 200px;
+            height: 200px; /* Dimensiones fijas */
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 25% 100%, 0% 75%);
+            overflow: hidden;
+        }
+        
+        .clip-movie-reel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* 6. Espaciado consistente para secciones */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        section {
+            margin-bottom: 4rem; /* Espaciado fijo entre secciones */
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        /* 7. Header con altura mínima */
+        header {
+            min-height: 100px; /* Altura mínima para evitar shifts */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        header p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* 8. Navegación con altura fija */
+        nav {
+            background: #2c3e50;
+            min-height: 60px; /* Altura mínima fija */
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover,
+        nav a[aria-current="page"] {
+            background: #34495e;
+            border-radius: 4px;
+        }
+        
+        /* 9. Newsletter con dimensiones consistentes */
+        .newsletter {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .newsletter form {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            display: flex;
+            height: 50px; /* Altura fija para el formulario */
+        }
+        
+        .newsletter label {
+            position: absolute;
+            left: -9999px; /* Oculto visualmente pero accesible */
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            border-right: none;
+            font-size: 1rem;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        
+        .newsletter button {
+            padding: 0.8rem 1.5rem;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 1rem;
+            height: 100%;
+            box-sizing: border-box;
+            min-width: 120px; /* Ancho mínimo fijo */
+        }
+        
+        .newsletter button:hover {
+            background-color: #c0392b;
+        }
+        
+        /* 10. Footer con altura mínima */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            min-height: 100px; /* Altura mínima */
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px; /* Dimensiones fijas para iconos */
+            background: #34495e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #e74c3c;
+        }
+        
+        /* 11. Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* 12. Responsive adjustments */
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .category-list {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            nav li {
+                margin: 0;
+            }
+            
+            .newsletter form {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .newsletter input,
+            .newsletter button {
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+                height: 50px;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -19,243 +393,159 @@
         <p>Las mejores recetas de tus películas favoritas</p>
 
         <div class="banner-content">
-            <!-- solucion mediante dirección de arte-->
+            <!-- OPTIMIZACIÓN CRÍTICA PARA LCP -->
             <picture>
-                  <!-- Versión móvil (vertical) -->
+                <!-- Versión móvil optimizada -->
                 <source 
                 media="(max-width: 480px)" 
-                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=75&width=480&height=150&fit=cover&auto=compress" 
                 type="image/webp">
 
-                <!-- Versión tablet (recortada) -->
+                <!-- Versión tablet optimizada -->
                 <source 
                 media="(max-width: 768px)" 
-                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=75&width=768&height=200&fit=cover&auto=compress" 
                 type="image/webp">
 
-                <!-- Formato webp para navegadores modernos -->
+                <!-- Desktop optimizada -->
                 <source 
-                srcset="./assets/images/harry-sally.jpg?as=webp&quality=80" 
+                srcset="./assets/images/harry-sally.jpg?as=webp&quality=75&width=1200&height=300&fit=cover&auto=compress" 
                 type="image/webp">
-                  <!-- Fallback para navegadores que no soportan webp -->
+                
+                <!-- Fallback optimizado -->
                 <img 
-                src="./assets/images/harry-sally.jpg?quality=80" 
+                src="./assets/images/harry-sally.jpg?quality=75&width=1200&height=300&fit=cover&auto=compress" 
                 alt="Cuando Harry encontró a Sally, escena restaurante"
                 width="1200"
                 height="300"
                 loading="eager"
-                fetchpriority="high" 
-                decoding="sync">  <!--para renderizado inmediato-->
-                
+                fetchpriority="high"
+                decoding="sync">
             </picture>
         </div>
     </header>
   
+   
     <nav role="navigation" aria-label="Menú principal">
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="categories.html">Categorías</a></li>
+            <li><a href="categories.html" aria-current="page">Categorías</a></li>
             <li><a href="#">Películas</a></li>
             <li><a href="#">Sobre Nosotros</a></li>
             <li><a href="#">Contacto</a></li>
         </ul>
     </nav>
-
+    
     <main id="main-content" role="main" class="container">
-        <article class="detalle-receta" itemscope itemtype="http://schema.org/Recipe">
-            <h1 class="section-title" itemprop="name">Pizza Napolitana</h1>
-            <div class="header-receta">
-                <p class="recipe-subtitle">De la película: <strong>Come, reza, ama (2010)</strong></p>
-            </div>
-                <div class="text-grid">
-                    <div class="text-detail">
-                        <p>¿Quién no ha soñado alguna vez con viajar a Italia? Y, sobre todo, ¿quién no ha soñado que lo haría <b>de la mano de Julia Roberts</b>? Aunque eso no sea posible, te traemos la receta de la clásica pizza napolitana para que recrees, desde tu cocina, un poco de la fantástica gastronomía italiana.</p>
-                        <p>La pizza margarita, nacida en Nápoles, es un plato típico de la gastronomía italiana y, como buen clásico, conquista el paladar de todos.</p>
-                        <p>Sus ingredientes son súper básicos pero el resultado <b>impresionante</b>. Tomate, mozzarella, hojas de albahaca fresca y aceite de oliva, son el único relleno para preparar esta estupenda y tradicional pizza italiana. Porque, a veces, lo más simple es lo mejor.</p> 
+        <section class="featured-recipes" aria-labelledby="featured-categories-heading">
+            <h2 class="section-title">Categorías Destacadas</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Explora los mejores platos de la gran pantalla por categorías</p>
+            <div class="recipe-grid">
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/tortitas.webp?quality=75&width=320&height=240&auto=compress" 
+                             alt="Deliciosas tortitas para desayuno"
+                             width="320" 
+                             height="240"
+                             loading="lazy"
+                             decoding="async">
                     </div>
-                    <div class="gallery-container" aria-label="Galería de Imágenes">
-                        <picture>
-                            <source 
-                            media="(max-width: 480px)" 
-                            srcset="./assets/images/napolitana-480.webp" 
-                            type="image/webp">
-                          
-                          <!-- Versión tablet (recortada) -->
-                          <source 
-                            media="(max-width: 768px)" 
-                            srcset="./assets/images/napolitana-768.webp"  
-                            type="image/webp">
-                          
-                          <!-- Formato webp para navegadores modernos -->
-                          <source 
-                            srcset="./assets/images/napolitana-1200.webp" 
-                            type="image/webp">
-                          
-                          <!-- Fallback para navegadores que no soportan webp -->
-                          <img 
-                            src="./assets/images/napolitana.jpg" 
-                            alt="Escena de la película donde aparece la receta"
-                            width="300" 
-                            height="200" 
-                            loading="lazy"
-                         decoding="async">
-                        </picture>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Desayunos</a>
+                    </div>
+                </div>
+                
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/napolitana-480.webp?quality=75&width=320&height=240&auto=compress" 
+                             alt="Pizza napolitana auténtica"
+                             width="320" 
+                             height="240"
+                             loading="lazy"
+                             decoding="async">
+                    </div>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Platos principales</a>
+                    </div>
+                </div>
+                
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/postre-480.webp?quality=75&width=320&height=240&auto=compress" 
+                             alt="Postre delicioso de película"
+                             width="320" 
+                             height="240"
+                             loading="lazy"
+                             decoding="async">
+                    </div>
+                    <div class="recipe-content"> 
+                        <a href="#" class="recipe-link">Postres</a>
                     </div>
                 </div>
 
-        <!-- Sección de video -->
-        <!-- <div class="movie-reference" data-src="https://www.youtube.com/embed/GXy4MFCrsaM?si=n8K7nAicR-DG_XU7">
-                <h3>La escena icónica</h3>
-                <p>En una de las escenas más memorables de "Come, reza, ama", la protagonista Elizabeth Gilbert (interpretada por Julia Roberts) disfruta de una auténtica pizza napolitana en la famosa pizzería Da Michele en Nápoles. Mientras saborea cada bocado, pronuncia las palabras que se han convertido en un mantra para los amantes de la comida: "Estoy teniendo una relación con mi pizza".</p>
-                <p>Esta escena captura la experiencia transcendental de disfrutar la comida italiana auténtica y ha inspirado a muchos espectadores a buscar su propia experiencia gastronómica napolitana.</p>
-                
-            <button onclick="loadVideo()">▶ Ver video</button>
-        </div>
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/batido3.webp?quality=75&width=320&height=240&auto=compress" 
+                             alt="Batido refrescante"
+                             width="320" 
+                             height="240"
+                             loading="lazy"
+                             decoding="async">
+                    </div>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Bebidas</a>
+                    </div>
+                </div>
 
-        <script>
-        function loadVideo() {
-            const placeholder = document.querySelector('.movie-reference');
-            const src = placeholder.dataset.src;
-            placeholder.innerHTML = `<iframe width="560" height="315" src="${src}" 
-                frameborder="0" allowfullscreen loading="lazy"></iframe>`;
-        }
-        </script> -->
-            <div class="movie-reference">
-                <h3>La escena icónica</h3>
-                <p>En una de las escenas más memorables de "Come, reza, ama", la protagonista Elizabeth Gilbert (interpretada por Julia Roberts) disfruta de una auténtica pizza napolitana en la famosa pizzería Da Michele en Nápoles. Mientras saborea cada bocado, pronuncia las palabras que se han convertido en un mantra para los amantes de la comida: "Estoy teniendo una relación con mi pizza".</p>
-                <p>Esta escena captura la experiencia transcendental de disfrutar la comida italiana auténtica y ha inspirado a muchos espectadores a buscar su propia experiencia gastronómica napolitana.</p>
-                <section class="recipe-video" aria-labelledby="video-title">
-                    <iframe 
-                        aria-label="Pizza Napolitana, escena de la película Come, reza, ama"
-                        preload="metadata"
-                        srclang="en"
-                        label="Inglés"
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="./assets/images/gazpacho-plato-480.webp?quality=75&width=320&height=240&auto=compress" 
+                             alt="Gazpacho fresco servido"
+                             width="320" 
+                             height="240"
+                             loading="lazy"
+                             decoding="async">
+                    </div>
+                    <div class="recipe-content">
+                        <a href="#" class="recipe-link">Snacks</a>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-                        width="560" height="315" 
-                        src="https://www.youtube.com/embed/GXy4MFCrsaM?si=n8K7nAicR-DG_XU7" 
-                        title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen loading="lazy">
-                    </iframe>
-                    
-            </div>
-            
 
-            <div class="movie-gallery">
-                <div class="movie-gallery-container">
-                    <div class="gallery-item">
-                        <img src="./assets/images/pizza.avif" loading="lazy"
-                        srcset="./assets/images/pizza-480.avif 320w, ./assets/images/pizza-768.avif 768w, ./assets/images/pizza.avif 1200w"
-                        sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px"
-                        alt="Julia Roberts en la escena de la película Come, reza, ama, comeindo pizza"
-                        >
-                    </div>
-                
-              
-                    <div class="gallery-item-poster">
-                        <img src="./assets/images/poster-come.webp" loading="lazy"
-                        srcset="./assets/images/poster-come-480.webp 320w, ./assets/images/poster-come-768.webp 768w, ./assets/images/poster-come.webp 1200w"
-                        sizes="(max-width: 480px) 480px, (max-width: 768px) 720px, 1200px"
-                        alt="Poster de la pelicula Come, reza, ama"
-                        >
-                    </div>
+        <section class="categories" aria-labelledby="categories-heading">
+            <h2 id="categories-heading" class="section-title">Explora por Categorías</h2>
+            <div class="category-list" role="list">
+                <div class="category-item" role="listitem"><a href="#">Postres</a></div>
+                <div class="category-item" role="listitem"><a href="#">Platos Principales</a></div>
+                <div class="category-item" role="listitem"><a href="#">Bebidas</a></div>
+                <div class="category-item" role="listitem"><a href="#">Snacks</a></div>
+                <div class="category-item" role="listitem"><a href="#">Desayunos</a></div>
+            </div>
+        </section>
+        
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+            <h2 id="newsletter-heading" class="section-title">Suscríbete a nuestro boletín</h2>
+            <p>Recibe nuevas recetas de películas directamente en tu correo.</p>
+            <form>
+                <label for="email-subscription">Correo electrónico</label>
+                <input 
+                    id="email-subscription"
+                    type="email" 
+                    placeholder="Tu correo electrónico" 
+                    required>
+                <button type="submit">Suscribirse</button>
+            </form>
+            <div class="clipped-image">
+                <div class="clip-movie-reel">
+                    <img src="./assets/images/tarta.jpg" 
+                         alt="Imagen de la película Criadas y señoras"
+                         width="200"
+                         height="200">
                 </div>
             </div>
-
-
-            <div class="tiempo-info"  aria-label="Información de preparación">
-                <span><strong>Tiempo de preparación:</strong> 3 horas</span> | 
-                <span><strong>Tiempo de cocción:</strong> 90 segundos</span> | 
-                <span><strong>Dificultad:</strong> Media</span> | 
-                <span><strong>Porciones:</strong> 4</span>
-            </div>
-            
-            <div class="ingredients-section">
-                <h2>Ingredientes</h2>
-                
-                <h3>Para la masa:</h3>
-                <ul class="ingredients-list">
-                    <li>Harina de trigo 00 <span class="cantidad">500g</span></li>
-                    <li>Agua <span class="cantidad">325ml</span></li>
-                    <li>Sal <span class="cantidad">10g</span></li>
-                    <li>Levadura fresca <span class="cantidad">3g</span></li>
-                </ul>
-                
-                <h3>Para la salsa:</h3>
-                <ul class="ingredients-list">
-                    <li>Tomates San Marzano pelados <span class="cantidad">400g</span></li>
-                    <li>Sal marina <span class="cantidad">al gusto</span></li>
-                    <li>Aceite de oliva virgen extra <span class="cantidad">2 cucharadas</span></li>
-                </ul>
-                
-                <h3>Para la cobertura:</h3>
-                <ul class="ingredients-list">
-                    <li>Mozzarella de búfala <span class="cantidad">250g</span></li>
-                    <li>Hojas de albahaca fresca <span class="cantidad">unas cuantas</span></li>
-                    <li>Aceite de oliva virgen extra <span class="cantidad">un chorrito</span></li>
-                </ul>
-            </div>
-            
-            <div class="preparation-section">
-                <h2>Preparación</h2>
-                
-                <h3>Para la masa:</h3>
-                <ol class="preparation-steps">
-                    <li>En un recipiente grande, disuelve la levadura en el agua a temperatura ambiente.</li>
-                    <li>Agrega aproximadamente el 10% de la harina y mezcla bien. Deja reposar este pre-fermento durante 10 minutos.</li>
-                    <li>Añade el resto de la harina y la sal. Mezcla hasta que todos los ingredientes estén combinados.</li>
-                    <li>Amasa sobre una superficie enharinada durante al menos 10-15 minutos hasta obtener una masa elástica y suave.</li>
-                    <li>Forma una bola y colócala en un recipiente ligeramente aceitado. Cúbrelo con un paño húmedo y deja reposar a temperatura ambiente durante 2 horas.</li>
-                    <li>Divide la masa en 4 bolas de 200-220g cada una y déjalas reposar cubiertas durante 45 minutos más.</li>
-                </ol>
-                
-                <h3>Para la salsa:</h3>
-                <ol class="preparation-steps">
-                    <li>Tritura los tomates San Marzano (a mano o con un procesador de alimentos) hasta obtener una consistencia suave con algunos trozos pequeños.</li>
-                    <li>Añade la sal y el aceite de oliva, mezcla bien y reserva.</li>
-                </ol>
-                
-                <h3>Para hornear la pizza:</h3>
-                <ol class="preparation-steps">
-                    <li>Precalienta tu horno al máximo (idealmente 450-500°C, pero un horno doméstico a la máxima temperatura también funcionará). Si tienes una piedra para pizza, colócala en el horno para que se caliente durante al menos 45 minutos.</li>
-                    <li>Con las manos enharinadas, estira una bola de masa hasta formar un disco de aproximadamente 25-30 cm de diámetro, dejando un borde un poco más grueso.</li>
-                    <li>Coloca la masa estirada sobre una pala de pizza ligeramente enharinada.</li>
-                    <li>Extiende 2-3 cucharadas de salsa de tomate sobre la masa con movimientos circulares, dejando el borde libre.</li>
-                    <li>Coloca trozos de mozzarella repartidos por la pizza (no demasiados para evitar que quede empapada).</li>
-                    <li>Desliza la pizza en el horno caliente y hornea durante aproximadamente 60-90 segundos (o 4-5 minutos en un horno doméstico) hasta que los bordes estén dorados y la mozzarella burbujeante.</li>
-                    <li>Retira la pizza del horno, añade las hojas de albahaca fresca, un chorrito de aceite de oliva y sirve inmediatamente.</li>
-                </ol>
-                
-                <h3>Consejos para una auténtica pizza napolitana:</h3>
-                <ul>
-                    <li>La masa debe ser fina en el centro y ligeramente más gruesa en los bordes.</li>
-                    <li>Los ingredientes deben ser de la mejor calidad posible, especialmente la mozzarella de búfala.</li>
-                    <li>La pizza debe cocinarse a muy alta temperatura durante un tiempo corto.</li>
-                    <li>La albahaca siempre se añade después de hornear para preservar su aroma.</li>
-                </ul>
-            </div>
-            
-            <div class="nutrition-info">
-                <div class="nutrition-item">
-                    <div class="nutrition-value">285</div>
-                    <div class="nutrition-label">Calorías</div>
-                </div>
-                <div class="nutrition-item">
-                    <div class="nutrition-value">42g</div>
-                    <div class="nutrition-label">Carbohidratos</div>
-                </div>
-                <div class="nutrition-item">
-                    <div class="nutrition-value">12g</div>
-                    <div class="nutrition-label">Proteínas</div>
-                </div>
-                <div class="nutrition-item">
-                    <div class="nutrition-value">9g</div>
-                    <div class="nutrition-label">Grasas</div>
-                </div>
-            </div>
-            
-        </article>
+        </section>
     </main>
     
     <footer>
@@ -285,7 +575,7 @@
                     <path d="M7.75,17.89 L11.31,17.89 L11.31,11.9 C11.31,11.58 11.33,11.26 11.43,11.03 C11.69,10.39 12.27,9.73 13.26,9.73 C14.55,9.73 15.06,10.71 15.06,12.15 L15.06,17.89 L18.62,17.89 L18.62,11.74 C18.62,8.45 16.86,6.92 14.52,6.92 C12.6,6.92 11.75,7.99 11.28,8.73 L11.3,8.73 L11.3,7.17 L7.75,7.17 C7.79,8.17 7.75,17.89 7.75,17.89 L7.75,17.89 L7.75,17.89 Z"></path>
                 </svg>
             </a>
-            <a aria-label="Youtube" href="https://www.youtube.com" class="links-social">
+            <a aria-label="Youtube" href="https://www.youtube.com">
                 <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15,4.1c1,0.1,2.3,0,3,0.8c0.8,0.8,0.9,2.1,0.9,3.1C19,9.2,19,10.9,19,12c-0.1,1.1,0,2.4-0.5,3.4c-0.5,1.1-1.4,1.5-2.5,1.6 c-1.2,0.1-8.6,0.1-11,0c-1.1-0.1-2.4-0.1-3.2-1c-0.7-0.8-0.7-2-0.8-3C1,11.8,1,10.1,1,8.9c0-1.1,0-2.4,0.5-3.4C2,4.5,3,4.3,4.1,4.2 C5.3,4.1,12.6,4,15,4.1z M8,7.5v6l5.5-3L8,7.5z"></path>
                 </svg>
@@ -297,11 +587,7 @@
                 </svg>
             </a>
         </div>
-        <a href="enlaces.html">Enlaces al contenido utilizado</a>
+        <a href="enlaces.html" style="color: #bdc3c7; text-decoration: none;">Enlaces al contenido utilizado</a>
     </footer>
-    
 </body>
 </html>
-
-
-    
